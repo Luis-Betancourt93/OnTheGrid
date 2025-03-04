@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { account, ID } from './appwrite';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';  
 
 const App = () => {
   const [loggedInUser, setLoggedInUser] = useState(null);
