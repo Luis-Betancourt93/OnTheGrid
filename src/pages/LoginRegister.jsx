@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function LoginRegister() {
+function LoginRegister() {
   return (
     <div>
-      
-    </div>
+     <h1>LoginRegister</h1>
+     </div>
   )
 }
+
+export default LoginRegister
