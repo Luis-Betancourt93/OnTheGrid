@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function LoginRegister() {
   return (
@@ -6,6 +6,6 @@ function LoginRegister() {
      <h1>LoginRegister</h1>
      </div>
   )
-}
+};
 
-export default LoginRegister
+export default LoginRegister;
