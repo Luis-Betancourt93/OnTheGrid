@@ -13,7 +13,7 @@ function Profile() {
 
   return (
     <div>
-      <h1>Hello Profile</h1>
+      <h1>Hellow Profile</h1>
     </div>
   ); 
 }

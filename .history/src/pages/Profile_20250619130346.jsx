@@ -7,15 +7,30 @@ import { COLLECTION_ID } from '../shhh';
 
 function Profile() {
 
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    init();
+  }, [])
+
   const init = async () => {
     const response = await database.listDocuments(DATABASE_ID, COLLECTION_ID);
+
+    setUser(response.documents);
      }
 
   return (
     <div>
-      <h1>Hello Profile</h1>
+      <div>
+        {people.map(note => (
+          <div key={people.$id}>
+            {people.body}
+          </div>
+        ))}
+      </div>
     </div>
   ); 
 }
 
 export default Profile;
+

@@ -7,13 +7,17 @@ import { COLLECTION_ID } from '../shhh';
 
 function Profile() {
 
+  useEffect(() => {
+    init();
+  }, []);
+
   const init = async () => {
     const response = await database.listDocuments(DATABASE_ID, COLLECTION_ID);
      }
 
   return (
     <div>
-      <h1>Hello Profile</h1>
+      <h1>Profile</h1>
     </div>
   ); 
 }
