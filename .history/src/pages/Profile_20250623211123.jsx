@@ -2,7 +2,7 @@
 
 // Profile.jsx
 import React from 'react';
-import People from '/components/People.jsx'; 
+import People from '../components/People.jsx'; 
 
 function Profile() {
   return (

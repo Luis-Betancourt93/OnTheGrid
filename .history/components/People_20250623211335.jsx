@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { database } from '../src/appwrite'; 
-import { VITE_DATABASE_ID, VITE_COLLECTION_ID } from '../src/shhh.js';
+import { database } from './appwrite.js';
+import { VITE_DATABASE_ID, VITE_COLLECTION_ID } from '../shhh';
 
 function People() {
   const [people, setPeople] = useState([]);
