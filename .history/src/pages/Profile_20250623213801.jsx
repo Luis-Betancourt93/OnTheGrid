@@ -10,7 +10,6 @@ function Profile() {
     <div>
       <h1>My Profile Page</h1>
       <People />
-      <Form />
     </div>
   );
 }
