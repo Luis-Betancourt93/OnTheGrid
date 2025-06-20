@@ -6,7 +6,7 @@ import Profile from './pages/Profile';
 
 function App() {
   return (
-  <div className="bg-info-subtle min-vh-100 d-flex justify-content-center align-items-center">
+  <div className=" min-vh-100  justify-content-center  mx-auto" style={{width: '80%'}}>
   <BrowserRouter>
     <Routes>
       <Route path="/login" element={<LoginRegister />} />
