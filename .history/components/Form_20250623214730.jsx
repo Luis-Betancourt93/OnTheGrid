@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 function Form() {
   const [name, setName] = useState('');
   const [companyName, setCompanyName] = useState(''); 
-  const [role, setRole] = useState('');
-  
 
   const handleSubmit = (e) => {
     e.preventDefault(); // prevent the page from refreshing
@@ -12,7 +10,7 @@ function Form() {
   };
 
   return (
-    <form onSubmit={handleSubmit} >
+    <form onSubmit={handleSubmit}>
       <label>
         Name:
         <input 
@@ -27,21 +25,10 @@ function Form() {
         <input 
           type="text" 
           value={companyName} 
-          onChange={(e) => setCompanyName(e.target.value)} 
+          onChange={(e) => setName(e.target.value)} 
         />
       </label>
-      <br />
-      <label>
-        Role:
-        <input 
-          type="text" 
-          value={role} 
-          onChange={(e) => setRole(e.target.value)} 
-        />
-      </label>
-      <br />
       <button type="submit">Submit</button>
-
     </form>
   );
 }
