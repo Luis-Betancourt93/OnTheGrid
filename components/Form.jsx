@@ -4,6 +4,9 @@ function Form() {
   const [name, setName] = useState('');
   const [companyName, setCompanyName] = useState(''); 
   const [role, setRole] = useState('');
+  const [location, setLocation] = useState('');
+  const [positionType, setPositionType] = useState('');
+  const [source, setSource] = useState('')
   
 
   const handleSubmit = (e) => {
@@ -37,6 +40,33 @@ function Form() {
           type="text" 
           value={role} 
           onChange={(e) => setRole(e.target.value)} 
+        />
+      </label>
+      <br />
+      <label>
+        Location:
+        <input 
+          type="text" 
+          value={location} 
+          onChange={(e) => setLocation(e.target.value)} 
+        />
+      </label>
+      <br />
+      <label>
+        Position Type:
+        <input 
+          type="text" 
+          value={positionType} 
+          onChange={(e) => setPositionType(e.target.value)} 
+        />
+      </label>
+      <br />
+      <label>
+        Source:
+        <input 
+          type="text" 
+          value={source} 
+          onChange={(e) => setSource(e.target.value)} 
         />
       </label>
       <br />
