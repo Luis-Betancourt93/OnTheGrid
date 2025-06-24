@@ -10,8 +10,7 @@ function Profile() {
     <h1 className='d-flex justify-content-center'>My Profile Page</h1>
     <Form />
     <People />
-    <People />
-    <People />
+   
     
   </div>
 

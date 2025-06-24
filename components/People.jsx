@@ -25,9 +25,13 @@ function People() {
       ) : (
         people.map((person) => (
           <div key={person.$id} style={{ border: '1px solid #ccc', padding: '1rem', marginBottom: '1rem' }}>
+            <p><strong>Name:</strong> {person["name"]}</p>
+            <p><strong>Location:</strong> {person["location"]}</p>
             <p><strong>Company:</strong> {person["company-name"]}</p>
-            <p><strong>Role:</strong> {person["role"]}</p>
+            <p><strong>Position:</strong> {person["position-type"]}</p>
             <p><strong>Date Added:</strong> {new Date(person["date-added"]).toLocaleString()}</p>
+            <p><strong>Role:</strong> {person["role"]}</p>
+            <p><strong>Source:</strong> {person["source"]}</p>
           </div>
         ))
       )}
