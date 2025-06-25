@@ -6,14 +6,17 @@ import Profile from './pages/Profile';
 
 function App() {
   return (
-  <div className=" min-vh-100  justify-content-center  mx-auto" style={{width: '80%'}}>
-  <BrowserRouter>
-    <Routes>
-      <Route path="/login" element={<LoginRegister />} />
-      <Route path="/profile" element={<Profile />} />
-    </Routes>
-  </BrowserRouter>
+  <div className='container bg-slate-400/60 '>
+     <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<LoginRegister />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </BrowserRouter>
   </div>
-  )
+     
+  
+  );
 }
+
 export default App;

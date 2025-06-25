@@ -7,11 +7,10 @@ function Profile() {
   return (
    
   <div className="">
-    <h1 className='d-flex justify-content-center'>My Profile Page</h1>
+    <h1 className=''>My Profile Page</h1>
     <Form />
     <People />
    
-    
   </div>
 
   );

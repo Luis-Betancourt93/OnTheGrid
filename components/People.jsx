@@ -19,13 +19,14 @@ function People() {
   }, []);
 
   return (
+    
     <div>
       {people.length === 0 ? (
         <p>No data found.</p>
       ) : (
         people.map((person) => (
           <div key={person.$id} style={{ border: '1px solid #ccc', padding: '1rem', marginBottom: '1rem' }}>
-            <p><strong>Name:</strong> {person["name"]}</p>
+            <p className='text-red-400 font-bold'><strong>Name:</strong> {person["name"]}</p>
             <p><strong>Location:</strong> {person["location"]}</p>
             <p><strong>Company:</strong> {person["company-name"]}</p>
             <p><strong>Position:</strong> {person["position-type"]}</p>
