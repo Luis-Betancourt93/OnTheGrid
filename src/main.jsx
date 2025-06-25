@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <div className='bg-sky-900'>
+    <div className=''>
       <App />
     </div>
     

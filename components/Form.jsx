@@ -39,8 +39,8 @@ const handleSubmit = async (e) => {
 
 
   return (
-    
-    <form onSubmit={handleSubmit} >
+    <div className='flex justify-center text-red-900'>
+       <form onSubmit={handleSubmit} className='w-3/4'>
       <label>
         Name:
         <input 
@@ -104,9 +104,11 @@ const handleSubmit = async (e) => {
         />
       </label>
       <br />
-      <button type="submit">Submit</button>
-
+      <button type="submit" className='w-full flex justify-center'>Submit</button>
     </form>
+    </div>
+   
+    
   );
 }
 

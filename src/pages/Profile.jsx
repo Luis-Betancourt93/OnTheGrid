@@ -7,7 +7,7 @@ function Profile() {
   return (
    
   <div className="">
-    <h1 className=''>My Profile Page</h1>
+    <h1 className='flex justify-center'>My Profile Page</h1>
     <Form />
     <People />
    

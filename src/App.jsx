@@ -6,7 +6,7 @@ import Profile from './pages/Profile';
 
 function App() {
   return (
-  <div className='container bg-slate-400/60 '>
+  <div className='container bg-black/20 '>
      <BrowserRouter>
         <Routes>
           <Route path="/login" element={<LoginRegister />} />
