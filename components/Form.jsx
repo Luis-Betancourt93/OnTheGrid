@@ -30,7 +30,8 @@ const handleSubmit = async (e) => {
     const result = await createPerson(personData);
     console.log("Person added:", result);
     alert("Person submitted successfully!");
-    // Optional: Clear the form here if you want
+
+    
   } catch (error) {
     console.error("Submit error:", error);
     alert("Something went wrong. Please try again.");
@@ -39,7 +40,7 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <div className='flex justify-center text-red-900'>
+    <div className='flex justify-center text-red-900 '>
        <form onSubmit={handleSubmit} className='w-3/4'>
       <label>
         Name:
