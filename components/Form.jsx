@@ -31,7 +31,14 @@ const handleSubmit = async (e) => {
     console.log("Person added:", result);
     alert("Person submitted successfully!");
 
-    
+    // Clears the form
+    setName('');
+    setCompanyName('');
+    setRole('');
+    setLocation('');
+    setPositionType('');
+    setSource('');
+    setDateAdded('');
   } catch (error) {
     console.error("Submit error:", error);
     alert("Something went wrong. Please try again.");
