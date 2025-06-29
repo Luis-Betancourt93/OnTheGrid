@@ -3,44 +3,27 @@ import { database } from '../src/appwrite';
 import { VITE_DATABASE_ID, VITE_COLLECTION_ID } from '../src/shhh.js';
 import { getAllPeople, deletePerson } from '../services/api.js';
 
-function People() {
-  const [people, setPeople] = useState([]);
+function People({people = [], onDeleteSuccess}) {
 
-   // Load all people from Appwrite on component mount
-  useEffect(() => {
-    getAllPeople()
-      .then(setPeople)
-      .catch(console.error);
-  }, []);
+
+   
 
  // Delete person from Appwrite and local state
   const handleDelete = async (id) => {
     try {
       await deletePerson(id); // call Appwrite
-      setPeople(prev => prev.filter(person => person.$id !== id)); // update UI
+      if (onDeleteSuccess) onDeleteSuccess();
     } catch (error) {
       console.error("Error deleting person:", error);
     }
   };
 
 
-  useEffect(() => {
-    const init = async () => {
-      try {
-        const response = await database.listDocuments(VITE_DATABASE_ID, VITE_COLLECTION_ID);
-        setPeople(response.documents);
-      } catch (error) {
-        console.error("Error fetching people:", error);
-      }
-    };
-
-    init();
-  }, []);
 
   return (
     
     <div className='flex justify-center'>
-      {people.length === 0 ? (
+      {Array.isArray(people) && people.length === 0 ? (
         <p>No data found.</p>
       ) : (
         people.map((person) => (

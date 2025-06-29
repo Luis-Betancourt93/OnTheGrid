@@ -41,7 +41,7 @@ export async function getAllPeople() {
       VITE_DATABASE_ID,
       VITE_COLLECTION_ID
     );
-    return response.documents;
+    return response;
   } catch (err) {
     console.error("Failed to fetch people:", err);
     throw err;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { createPerson } from '../services/api';
 
 
-function Form() {
+function Form({onSuccess}) {
   const [name, setName] = useState('');
   const [companyName, setCompanyName] = useState(''); 
   const [role, setRole] = useState('');
@@ -39,6 +39,10 @@ const handleSubmit = async (e) => {
     setPositionType('');
     setSource('');
     setDateAdded('');
+
+    if (onSuccess) {
+      onSuccess();
+    }
   } catch (error) {
     console.error("Submit error:", error);
     alert("Something went wrong. Please try again.");
