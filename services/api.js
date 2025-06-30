@@ -47,3 +47,18 @@ export async function getAllPeople() {
     throw err;
   }
 }
+
+export async function updatePerson(id, data) {
+  try {
+    const response = await database.updateDocument(
+      VITE_DATABASE_ID,
+      VITE_COLLECTION_ID,
+      id,
+      data
+    );
+    return response;
+  } catch (err) {
+    console.error("Failed to update person:", err);
+    throw err;
+  }
+}
