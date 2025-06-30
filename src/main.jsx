@@ -6,7 +6,7 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <div className='min-h-screen w-full bg-gray-100'>
+    <div className='min-h-screen w-full bg-[url(/public/grid.jpg)]'>
       <App />
     </div>
     
