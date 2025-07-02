@@ -15,7 +15,7 @@ function People({ people = [], onDeleteSuccess }) {
   };
 
   return (
-    <div className='flex flex-col items-center'>
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
       {Array.isArray(people) && people.length === 0 ? (
         <p>No data found.</p>
       ) : (
@@ -46,7 +46,8 @@ function SinglePerson({ person, onDelete }) {
   };
 
   return (
-    <div style={{ border: '1px solid #ccc', padding: '1rem', marginBottom: '1rem', width: '80%' }}>
+    <div className="border border-gray-300 p-4 mb-4">
+      
       <p className='text-red-400 font-bold'><strong>Name:</strong> {person["name"]}</p>
       <p><strong>Location:</strong> {person["location"]}</p>
       <p><strong>Company:</strong> {person["company-name"]}</p>
@@ -72,6 +73,7 @@ function SinglePerson({ person, onDelete }) {
         Delete
       </button>
     </div>
+    
   );
 }
 
