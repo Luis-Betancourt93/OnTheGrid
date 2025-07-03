@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { database } from '../src/appwrite'; 
-import { VITE_DATABASE_ID, VITE_COLLECTION_ID } from '../src/shhh.js';
 import { getAllPeople, deletePerson, updatePerson } from '../services/api.js';
 
 function People({ people = [], onDeleteSuccess }) {
