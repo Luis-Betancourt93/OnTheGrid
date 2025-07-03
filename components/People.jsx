@@ -52,7 +52,7 @@ function SinglePerson({ person, onDelete }) {
       <p><strong>Location:</strong> {person["location"]}</p>
       <p><strong>Company:</strong> {person["company-name"]}</p>
       <p><strong>Position:</strong> {person["position-type"]}</p>
-      <p><strong>Date Added:</strong> {new Date(person["date-added"]).toLocaleString()}</p>
+      <p><strong>Date Added:</strong> {new Date(person["date-added"]).toLocaleDateString()}</p>
       <p><strong>Role:</strong> {person["role"]}</p>
       <p><strong>Source:</strong> {person["source"]}</p>
 

@@ -54,11 +54,11 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <div className='flex justify-center text-red-900'>
+    <div className='flex justify-center '>
        <form onSubmit={handleSubmit} className='w-3/4'>
       <label>
-        Name:
         <input 
+          placeholder='Name'
           type="text" 
           value={name} 
           onChange={(e) => setName(e.target.value)} 
@@ -66,8 +66,8 @@ const handleSubmit = async (e) => {
       </label>
       <br />
       <label>
-        Company Name:
         <input 
+          placeholder='Company Name'
           type="text" 
           value={companyName} 
           onChange={(e) => setCompanyName(e.target.value)} 
@@ -75,8 +75,8 @@ const handleSubmit = async (e) => {
       </label>
       <br />
       <label>
-        Role:
         <input 
+          placeholder='Role'
           type="text" 
           value={role} 
           onChange={(e) => setRole(e.target.value)} 
@@ -84,8 +84,8 @@ const handleSubmit = async (e) => {
       </label>
       <br />
       <label>
-        Location:
         <input 
+          placeholder='Location'
           type="text" 
           value={location} 
           onChange={(e) => setLocation(e.target.value)} 
@@ -93,8 +93,8 @@ const handleSubmit = async (e) => {
       </label>
       <br />
       <label>
-        Position Type:
-        <input 
+        <input className='input input-md bg-info'
+          placeholder='Position'
           type="text" 
           value={positionType} 
           onChange={(e) => setPositionType(e.target.value)} 
@@ -102,8 +102,9 @@ const handleSubmit = async (e) => {
       </label>
       <br />
       <label>
-        Source:
-        <input 
+        <input
+          
+          placeholder='Source' 
           type="text" 
           value={source} 
           onChange={(e) => setSource(e.target.value)} 
@@ -113,6 +114,8 @@ const handleSubmit = async (e) => {
       <label>
         Date:
         <input 
+          
+          placeholder='Date'
           type="date" 
           value={dateAdded} 
           onChange={(e) => setDateAdded(e.target.value)} 
@@ -138,7 +141,7 @@ const handleSubmit = async (e) => {
   </label>
 </div>
       <br />
-      <button type="submit" className='w-full flex justify-center'>Submit</button>
+      <button type="submit" className='w-full flex justify-center btn btn-soft btn-success'>Submit</button>
     </form>
     </div>
    
