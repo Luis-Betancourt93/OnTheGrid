@@ -1,15 +1,16 @@
 import { database } from '../src/appwrite';
 import { ID } from 'appwrite';
-import { VITE_DATABASE_ID, VITE_COLLECTION_ID } from '../src/shhh';
 
 
+const DATABASE_ID = import.meta.env.VITE_DATABASE_ID;
+const COLLECTION_ID = import.meta.env.VITE_COLLECTION_ID;
 
 
 export async function createPerson(data) {
   try {
     const response = await database.createDocument(
-      VITE_DATABASE_ID,
-      VITE_COLLECTION_ID,
+      DATABASE_ID,
+      COLLECTION_ID,
       ID.unique(), // Let Appwrite generate a unique ID
       data
     );
@@ -23,8 +24,8 @@ export async function createPerson(data) {
 export async function deletePerson(documentId) {
   try {
     const response = await database.deleteDocument(
-      VITE_DATABASE_ID,
-      VITE_COLLECTION_ID,
+      DATABASE_ID,
+      COLLECTION_ID,
       documentId
     );
     return response;
@@ -38,8 +39,8 @@ export async function deletePerson(documentId) {
 export async function getAllPeople() {
   try {
     const response = await database.listDocuments(
-      VITE_DATABASE_ID,
-      VITE_COLLECTION_ID
+      DATABASE_ID,
+      COLLECTION_ID
     );
     return response;
   } catch (err) {
@@ -51,8 +52,8 @@ export async function getAllPeople() {
 export async function updatePerson(id, data) {
   try {
     const response = await database.updateDocument(
-      VITE_DATABASE_ID,
-      VITE_COLLECTION_ID,
+      DATABASE_ID,
+      COLLECTION_ID,
       id,
       data
     );
