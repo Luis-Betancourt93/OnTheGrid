@@ -10,7 +10,8 @@ function Form({onSuccess}) {
   const [positionType, setPositionType] = useState('');
   const [source, setSource] = useState('');
   const [dateAdded, setDateAdded] = useState('');
-  const [chat,setChatStatus] = useState(false)
+  const [chat,setChatStatus] = useState(false);
+  const [notes, setNotes] = useState("");
   
 
 
@@ -25,7 +26,8 @@ const handleSubmit = async (e) => {
   "position-type": positionType,
   "source": source,
   "date-added": dateAdded,
-  "chat" : chat
+  "chat" : chat,
+  "notes" : notes
   };
 
   try {
@@ -42,6 +44,7 @@ const handleSubmit = async (e) => {
     setSource('');
     setDateAdded('');
     setChatStatus(false);
+    setNotes('');
 
     if (onSuccess) {
       onSuccess();
@@ -112,7 +115,7 @@ const handleSubmit = async (e) => {
         onChange={(e) => setDateAdded(e.target.value)}
         className="border border-gray-300 rounded-md px-3 py-2 w-full"
       />
-
+      
       <div className="flex items-center gap-3">
         <span className="font-medium">Chat:</span>
         <label className="relative inline-flex items-center cursor-pointer">
@@ -128,6 +131,17 @@ const handleSubmit = async (e) => {
                           duration-300 transform peer-checked:translate-x-full"></div>
         </label>
       </div>
+    </div>
+
+    <div>
+        <textarea 
+          className='w-full p-2 border'
+          placeholder='Enter Notes' 
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+          rows={5}
+          
+        />
     </div>
 
     {/* Submit button */}

@@ -55,23 +55,24 @@ function SinglePerson({ person, onDelete }) {
       <p><strong>Date Added:</strong> {new Date(person["date-added"]).toLocaleDateString()}</p>
       <p><strong>Role:</strong> {person["role"]}</p>
       <p><strong>Source:</strong> {person["source"]}</p>
+      <p><strong>Notes:</strong>{person['notes']}</p>
 
       {/* ☕ Chat Button */}
-      <button
-        onClick={toggleChat}
-        className={chatStatus ? 'bg-green-500' : 'bg-gray-500'}
-        style={{ color: 'white', marginRight: '1rem', padding: '0.25rem 0.5rem' }}
-      >
-        {chatStatus ? '✅ Had Chat' : '☕ No Chat'}
-      </button>
+      <div className='flex justify-between w-full mt-4'>
+        <button
+          onClick={toggleChat}
+          className={chatStatus ? 'bg-green-500' : 'bg-gray-500'}
+          style={{ color: 'white', marginRight: '1rem', padding: '0.25rem 0.5rem' }}
+        >
+          {chatStatus ? '✅ Had Chat' : '☕ No Chat'}
+        </button>
 
-      {/* Delete Button */}
-      <button
-        className='bg-red-500 text-white px-2 py-1'
-        onClick={() => onDelete(person.$id)}
-      >
-        Delete
-      </button>
+        {/* Delete Button */}
+        <button className='bg-red-500 text-white px-2 py-1' onClick={() => onDelete(person.$id)} >
+          Delete
+        </button>
+      </div>
+      
     </div>
     
   );
