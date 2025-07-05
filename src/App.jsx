@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { account, ID } from './appwrite';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';  
-import LoginRegister from './pages/LoginRegister';
+import Login from './pages/Login';
 import Profile from './pages/Profile';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   <div className=' '>
      <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<LoginRegister />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
