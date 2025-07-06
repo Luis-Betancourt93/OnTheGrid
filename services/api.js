@@ -1,5 +1,7 @@
 import { database } from '../src/appwrite';
-import { ID } from 'appwrite';
+import { ID, Query } from 'appwrite';
+import { account } from '../src/appwrite';
+
 
 
 const DATABASE_ID = import.meta.env.VITE_DATABASE_ID;
@@ -8,12 +10,24 @@ const COLLECTION_ID = import.meta.env.VITE_COLLECTION_ID;
 
 export async function createPerson(data) {
   try {
+    //  Get current user
+    const user = await account.get();
+    const userId = user.$id;
+
+    //  Attach userId to the data object
+    const personWithUser = {
+      ...data,
+      userId: userId
+    };
+
+    //  Store person in database
     const response = await database.createDocument(
       DATABASE_ID,
       COLLECTION_ID,
-      ID.unique(), // Let Appwrite generate a unique ID
-      data
+      ID.unique(),
+      personWithUser
     );
+
     return response;
   } catch (err) {
     console.error("Failed to create person:", err);
@@ -38,10 +52,15 @@ export async function deletePerson(documentId) {
 
 export async function getAllPeople() {
   try {
+    const user = await account.get();      // 🔐 get logged-in user
+    const userId = user.$id;
+
     const response = await database.listDocuments(
       DATABASE_ID,
-      COLLECTION_ID
+      COLLECTION_ID,
+      [Query.equal("userId", userId)]       // 🎯 filter by userId
     );
+
     return response;
   } catch (err) {
     console.error("Failed to fetch people:", err);
