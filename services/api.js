@@ -52,13 +52,13 @@ export async function deletePerson(documentId) {
 
 export async function getAllPeople() {
   try {
-    const user = await account.get();      // 🔐 get logged-in user
+    const user = await account.get();      // get logged-in user
     const userId = user.$id;
 
     const response = await database.listDocuments(
       DATABASE_ID,
       COLLECTION_ID,
-      [Query.equal("userId", userId)]       // 🎯 filter by userId
+      [Query.equal("userId", userId)]       // filter by userId
     );
 
     return response;
