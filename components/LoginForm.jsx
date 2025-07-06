@@ -1,8 +1,30 @@
-import React from 'react';
 
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; 
+import { account } from '../src/appwrite.js';
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm() {
-  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+    console.log('account object:', account);
+
+     const handleLogin = async (e) => {
+    e.preventDefault(); // stop form from refreshing page
+    setError(''); // clear any old errors
+
+    try {
+      await account.createEmailPasswordSession(email, password); // Appwrite login
+      navigate('/profile'); // if login worked, go to profile
+    } catch (err) {
+      setError(err.message); // if login fails, show the error
+    }
+  };
+
+
     return (
      <div className='h-screen flex items-center justify-center bg-[url(/login.jpg)] bg-no-repeat bg-cover'>
 
@@ -16,7 +38,7 @@ function LoginForm() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form action="#" method="POST" className="space-y-6">
+          <form  className="space-y-6" onSubmit={handleLogin}>
             <div>
               <label htmlFor="email" className="block text-sm/6 font-medium text-white">
                 Email address
@@ -28,6 +50,8 @@ function LoginForm() {
                   type="email"
                   required
                   autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
               </div>
@@ -35,22 +59,17 @@ function LoginForm() {
 
             <div>
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm/6 font-medium text-white">
+                <label  className="block text-sm/6 font-medium text-white" >
                   Password
                 </label>
-                <div className="text-sm">
-                  <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
-                    Forgot password?
-                  </a>
-                </div>
+               
               </div>
               <div className="mt-2">
                 <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
-                  autoComplete="current-password"
+                  
+                  type='password' 
+                  value={password} 
+                  onChange={(e) => setPassword(e.target.value)}
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
               </div>
@@ -63,12 +82,13 @@ function LoginForm() {
               >
                 Sign in
               </button>
+              {error && <p className="text-red-500 mb-4">{error}</p>}
             </div>
             <div className="text-sm flex justify-between">
                   <p>Don't Have an account?</p>
-                  <a href="#" className="font-semibold text-white hover:text-indigo-500">
+                  <Link to="/register" className="text-white hover:text-indigo-500 font-semibold">
                     Register Here
-                  </a>
+                  </Link>
             </div>
           </form>
 

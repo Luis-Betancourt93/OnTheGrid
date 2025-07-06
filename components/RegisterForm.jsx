@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { account } from '../src/appwrite.js';
 import { ID } from '../src/appwrite.js';
+import { Link } from 'react-router-dom';
+
 
 function RegisterForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+
 
   const handleSubmit = async (e) => {
   e.preventDefault(); // stop form from refreshing
@@ -104,9 +107,9 @@ function RegisterForm() {
             </div>
             <div className="text-sm flex justify-between">
                   <p>Have an account?</p>
-                  <a href="#" className="font-semibold text-white hover:text-indigo-500">
-                    Sign In  Here
-                  </a>
+                  <Link to="/login" className="text-white hover:text-indigo-500 font-semibold">
+                    Login Here
+                  </Link>
             </div>
           </form>
 
