@@ -69,11 +69,11 @@ function SinglePerson({ person, onDelete }) {
         {/* Delete Button */}
         <button className='bg-red-500 text-white px-2 py-1' 
         onClick={() => {
-    const confirmDelete = window.confirm('Are you sure you want to permanently delete this person?');
-    if (confirmDelete) {
-      onDelete(person.$id);
-    }
-  }}>
+          const confirmDelete = window.confirm('Are you sure you want to permanently delete this person?');
+           if (confirmDelete) {
+          onDelete(person.$id);
+           }
+          }}>
           Delete
         </button>
       </div>
