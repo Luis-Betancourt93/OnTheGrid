@@ -2,9 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import People from '../../components/People';
 import Form from '../../components/Form';
+import SearchBar from '../../components/SearchBar.jsx';
 import { getAllPeople } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
 import { account } from '../appwrite.js';
+
 
 function Profile() {
    const navigate = useNavigate();
@@ -19,6 +21,7 @@ function Profile() {
   };
 
   const [people, setPeople] = useState([]);
+  const [filteredPeople, setFilteredPeople] = useState([]);
   const [user, setUser] = useState(null);
 
   // Fetches people from Appwrite
@@ -26,6 +29,7 @@ function Profile() {
     try {
       const response = await getAllPeople();
       setPeople(response.documents);
+      setFilteredPeople(response.documents);
       console.log("Loaded people:", response.documents);
 
     } catch (error) {
@@ -33,11 +37,19 @@ function Profile() {
     }
   };
 
+  const handleSearch = (term) => {
+    const filtered  = people.filter((person) => 
+    person.name.toLowerCase().includes(term.toLowerCase()) 
+    );
+    setFilteredPeople(filtered);
+  }
+
   // Load people when page first loads
   useEffect(() => {
     loadPeople();
   }, []);
 
+  // Gets User info
   useEffect(() => {
     const loadUser = async () => {
       try {
@@ -63,9 +75,12 @@ function Profile() {
         {/* Pass the refresh function to the form */}
         <Form onSuccess={loadPeople} />
 
+        {/* Will search by name */}
+        <SearchBar onSearch={handleSearch}/>
+
         <div className="mt-6">
           {/* Pass the people list to the display */}
-          <People people={people} onDeleteSuccess={loadPeople} />
+          <People people={filteredPeople} onDeleteSuccess={loadPeople} />
         </div>
       </div>
     </div>
