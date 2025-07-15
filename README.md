@@ -2,7 +2,7 @@
  
 This project is a CRM (Customer Relationship Management) app built with React and Appwrite. It lets users log in, add and manage contacts, and keep track of networking connections all in one place.
 
-**Link to project:** onthegrid.netlify.app
+**Link to project:** https://onthegrid.netlify.app/login
 
 **Tech used:** HTML, CSS, Tailwind CSS, JavaScript, React, Vite, Appwrite, Playwright
 
