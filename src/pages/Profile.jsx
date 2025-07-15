@@ -37,9 +37,13 @@ function Profile() {
     }
   };
 
+  // Search by name and company
   const handleSearch = (term) => {
+    const lowerTerm = term.toLowerCase();
+
     const filtered  = people.filter((person) => 
-    person.name.toLowerCase().includes(term.toLowerCase()) 
+    person.name.toLowerCase().includes(lowerTerm) || 
+    person['company-name']?.toLowerCase().includes(lowerTerm)
     );
     setFilteredPeople(filtered);
   }

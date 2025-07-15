@@ -16,7 +16,7 @@ function SearchBar({onSearch}) {
           type="text"
           value = {searchTerm}
           onChange = {handleChange}         
-          placeholder='Search by Name..'
+          placeholder='Search by Name or Company'
           />
       </div>
     ) 
